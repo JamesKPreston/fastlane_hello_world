@@ -1,0 +1,50 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+#update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  
+  desc "Build the iOS app"
+  lane :build do
+    build_ios_app(
+      scheme: "Runner",
+      export_options: {
+        provisioningProfiles: {
+          "com.dxsolo.fastlaneHelloWorld" => "Fastlane Prov"
+        },
+        method: "ad-hoc",
+      }
+    )
+  end
+
+  desc "Build and distribute iOS app"
+  lane :distribute_ios do
+    build_ios_app(
+      scheme: "Runner",
+      export_options: {
+        provisioningProfiles: {
+          "com.dxsolo.fastlaneHelloWorld" => "Fastlane Prov"
+        },
+        method: "ad-hoc",
+      }
+    )
+    firebase_app_distribution(
+      app: "1:123456789:ios:123456789",
+      groups: "internal-testers",
+      release_notes: "New version of MyApp",
+    )
+  end
+end
