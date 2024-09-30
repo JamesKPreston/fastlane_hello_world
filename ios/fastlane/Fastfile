@@ -42,9 +42,9 @@ platform :ios do
       }
     )
     firebase_app_distribution(
-      app: "1:123456789:ios:123456789",
-      groups: "internal-testers",
-      release_notes: "New version of MyApp",
+      app: "",
+      groups: "",
+      release_notes: "",
     )
   end
 end
