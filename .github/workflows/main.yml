@@ -1,8 +1,9 @@
 name: Build and Distribute iOS
 on:
-  push:
+  pull_request:
     branches:
       - main
+  workflow_dispatch:
 jobs:
   build:
     runs-on: macos-latest
@@ -18,6 +19,8 @@ jobs:
       - name: Set up Fastlane
         run: bundle install
       - name: Build iOS and distribute with Fastlane
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         run: |
           cd ios
           fastlane distribute_ios
