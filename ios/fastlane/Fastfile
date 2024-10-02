@@ -16,35 +16,35 @@
 default_platform(:ios)
 
 platform :ios do
-  
-  desc "Build the iOS app"
+  desc "Build the iOS app with Match"
   lane :build do
     build_ios_app(
-      scheme: "Runner",
+      scheme: "Runner", # by default Flutter projects scheme is called Runner,
       export_options: {
         provisioningProfiles: {
-          "com.dxsolo.fastlaneHelloWorld" => "Fastlane Prov"
+          "com.dxsolo.fastlaneHelloWorld" => "match AdHoc com.dxsolo.fastlaneHelloWorld"
         },
         method: "ad-hoc",
       }
     )
   end
 
+  desc "Increment the build number"
+  lane :increment_version do
+    latest_release = firebase_app_distribution_get_latest_release(
+      app: "1:298721802207:ios:e6166621e9c3b84d0ff66a"
+    )
+    increment_build_number({ build_number: latest_release[:buildVersion].to_i + 1 })
+  end
+
   desc "Build and distribute iOS app"
   lane :distribute_ios do
-    build_ios_app(
-      scheme: "Runner",
-      export_options: {
-        provisioningProfiles: {
-          "com.dxsolo.fastlaneHelloWorld" => "Fastlane Prov"
-        },
-        method: "ad-hoc",
-      }
-    )
+    increment_version
+    build
     firebase_app_distribution(
-      app: "",
-      groups: "",
-      release_notes: "",
+      app: "1:298721802207:ios:e6166621e9c3b84d0ff66a",
+      groups: "dev",
+      release_notes: "Hello World from Fastlane",
     )
   end
 end
