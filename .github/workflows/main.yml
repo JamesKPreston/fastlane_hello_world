@@ -4,6 +4,7 @@ on:
     branches:
       - master
   workflow_dispatch:
+
 jobs:
   build:
     runs-on: macos-latest
@@ -11,21 +12,24 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
     
-        # Install the correct version of Dart SDK (use the latest version compatible with your project)
       - name: Set up Dart SDK
         uses: dart-lang/setup-dart@v1
         with:
           sdk: '3.4.3'
       
-
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.22.2'
+
       - name: Install dependencies
         run: flutter pub get
+
       - name: Set up Fastlane
-        run: bundle install
+        run: |
+          cd ios
+          bundle install
+      
       - name: Build iOS and distribute with Fastlane
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
