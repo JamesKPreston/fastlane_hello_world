@@ -1,6 +1,10 @@
-app_identifier("[[com.dxsolo.fastlaneHelloWorld]]") # The bundle identifier of your app
+app_identifier(["com.dxsolo.fastlaneHelloWorld"]) # The bundle identifier of your app
 apple_id("dxsolo@gmail.com") # Your Apple Developer Portal username
 team_id("K4S5UU8894")
+git_url("git@github.com:JamesKPreston/fastlane_match.git")
 
+#app_identifier(["com.dxsolo.fastlaneHelloWorld"]) # The bundle identifier of your app
+username("dxsolo@gmail.com") # Your Apple Developer Portal username
+keychain_password("Green48!")
 # For more information about the Appfile, see:
 #     https://docs.fastlane.tools/advanced/#appfile

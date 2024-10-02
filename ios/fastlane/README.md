@@ -21,7 +21,15 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 [bundle exec] fastlane ios build
 ```
 
-Build the iOS app
+Build the iOS app with Match
+
+### ios increment_version
+
+```sh
+[bundle exec] fastlane ios increment_version
+```
+
+
 
 ### ios distribute_ios
 
