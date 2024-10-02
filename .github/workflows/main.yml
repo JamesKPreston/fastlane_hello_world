@@ -1,0 +1,23 @@
+name: Build and Distribute iOS
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.0.0'
+      - name: Install dependencies
+        run: flutter pub get
+      - name: Set up Fastlane
+        run: bundle install
+      - name: Build iOS and distribute with Fastlane
+        run: |
+          cd ios
+          fastlane distribute_ios
