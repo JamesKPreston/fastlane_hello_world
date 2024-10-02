@@ -37,9 +37,11 @@ platform :ios do
     increment_build_number({ build_number: latest_release[:buildVersion].to_i + 1 })
   end
 
+
   desc "Build and distribute iOS app"
   lane :distribute_ios do
     increment_version
+    match(type: "adhoc", app_identifier: "com.dxsolo.fastlaneHelloWorld" , readonly: is_ci)
     build
     firebase_app_distribution(
       app: "1:298721802207:ios:e6166621e9c3b84d0ff66a",
