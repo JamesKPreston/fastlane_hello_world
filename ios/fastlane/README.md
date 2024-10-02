@@ -29,7 +29,7 @@ Build the iOS app with Match
 [bundle exec] fastlane ios increment_version
 ```
 
-
+Increment the build number
 
 ### ios distribute_ios
 
