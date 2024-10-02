@@ -2,7 +2,7 @@ name: Build and Distribute iOS
 on:
   pull_request:
     branches:
-      - main
+      - master
   workflow_dispatch:
 jobs:
   build:
@@ -10,6 +10,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+    
+        # Install the correct version of Dart SDK (use the latest version compatible with your project)
+      - name: Set up Dart SDK
+        uses: dart-lang/setup-dart@v1
+        with:
+          sdk: '>=3.4.3 <4.0.0'  # Specify your project's required Dart version
+
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
