@@ -34,6 +34,7 @@ jobs:
         env:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          MATCH_GIT_URL: ${{ secrets.MATCH_GIT_URL }}
         run: |
           cd ios
           fastlane distribute_ios

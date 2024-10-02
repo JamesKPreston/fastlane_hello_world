@@ -41,7 +41,7 @@ platform :ios do
   desc "Build and distribute iOS app"
   lane :distribute_ios do
     increment_version
-    match(type: "adhoc", app_identifier: "com.dxsolo.fastlaneHelloWorld" , readonly: is_ci)
+    match(type: "adhoc", app_identifier: "com.dxsolo.fastlaneHelloWorld" , readonly: is_ci, git_url: ENV['MATCH_GIT_URL'])
     build
     firebase_app_distribution(
       app: "1:298721802207:ios:e6166621e9c3b84d0ff66a",
