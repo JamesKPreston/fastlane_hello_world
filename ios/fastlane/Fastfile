@@ -20,12 +20,6 @@ platform :ios do
   lane :build do
     build_ios_app(
       scheme: "Runner", # by default Flutter projects scheme is called Runner,
-      export_options: {
-        provisioningProfiles: {
-          "com.dxsolo.fastlaneHelloWorld" => "match AdHoc com.dxsolo.fastlaneHelloWorld"
-        },
-        method: "ad-hoc",
-      }
     )
   end
 
