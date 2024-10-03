@@ -32,6 +32,7 @@ jobs:
       
       - name: Build iOS and distribute with Fastlane
         env:
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
           MATCH_GIT_URL: "https://${{ secrets.REPO_ACCESS_TOKEN }}@github.com/JamesKPreston/fastlane_match.git"
         run: |
