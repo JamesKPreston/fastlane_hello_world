@@ -14,7 +14,7 @@
 #update_fastlane
 
 default_platform(:ios)
-
+setup_ci()
 platform :ios do
   desc "Build the iOS app with Match"
   lane :build do
