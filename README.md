@@ -1,13 +1,6 @@
 # Fastlane iOS Deployment for Flutter App
 This project demonstrates how to set up and automate iOS app deployment for a Flutter project using Fastlane and Firebase App Distribution.
 
-## Prerequisites
-1. Homebrew
-Ensure you have Homebrew installed on your machine.
-
-1. Flutter
-Install Flutter by following the instructions here.
-
 ## Setting Up Fastlane
 1. To install Fastlane using Homebrew, run the following command in your terminal:
 
