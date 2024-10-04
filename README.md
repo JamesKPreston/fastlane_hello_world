@@ -50,6 +50,4 @@ Once everything is set up, you can deploy your app directly to Firebase App Dist
 ```bash
 fastlane distribute_ios
 ```
-## Conclusion
 
-You now have a Fastlane setup for distributing your iOS app via Firebase App Distribution. The steps can be automated further through CI/CD pipelines like GitHub Actions. For more details on how to integrate with CI/CD, refer to the relevant sections of this project’s documentation.
